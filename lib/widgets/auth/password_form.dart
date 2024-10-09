@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class PasswordForm extends StatelessWidget {
+  final TextEditingController pscController;
   const PasswordForm({
     super.key,
+    required this.pscController,
   });
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController pscController = TextEditingController();
-
     return Column(
       children: [
         Align(
@@ -21,9 +21,6 @@ class PasswordForm extends StatelessWidget {
           height: 10,
         ),
         TextField(
-          onChanged: (str) {
-            print(str);
-          },
           controller: pscController,
           obscureText: true,
           decoration: InputDecoration(
