@@ -21,18 +21,18 @@ class _FormWidgetState extends State<FormWidget> {
       children: [
         Text(
           warning,
-          style: TextStyle(
-              color: const Color.fromARGB(66, 163, 36, 36), fontSize: 20),
+          style: const TextStyle(
+              color: Color.fromARGB(66, 163, 36, 36), fontSize: 20),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         UserNameForm(
           userController: userController,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         PasswordForm(
           pscController: pscController,
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
         Row(
@@ -41,9 +41,13 @@ class _FormWidgetState extends State<FormWidget> {
               onPressed: () {
                 if (pscController.text == "Elton" &&
                     userController.text == "Baha") {
-                  setState(() {
-                    warning = "You are logged in successfully";
-                  });
+                  setState(
+                    () {
+                      warning = "You are logged in successfully";
+                      Navigator.of(context)
+                          .pushReplacementNamed('/main_screen');
+                    },
+                  );
                 } else {
                   setState(() {
                     warning =
@@ -52,12 +56,13 @@ class _FormWidgetState extends State<FormWidget> {
                 }
                 print(warning);
               },
-              style: ButtonStyle(
-                  backgroundColor:
-                      WidgetStatePropertyAll<Color>(Color(0xff01B4E4))),
+              style: const ButtonStyle(
+                backgroundColor:
+                    WidgetStatePropertyAll<Color>(Color(0xff01B4E4)),
+              ),
 
               /// Widget State Property All changed
-              child: Text(
+              child: const Text(
                 "Login",
                 style: TextStyle(fontSize: 18, color: Colors.white),
               ),
@@ -67,7 +72,7 @@ class _FormWidgetState extends State<FormWidget> {
             ),
             TextButton(
               onPressed: () {},
-              child: Text(
+              child: const Text(
                 "Reset password",
                 style: TextStyle(color: Color(0xff01B4E4)),
               ),
