@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/widgets/movie_folder/movie_list_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -13,9 +14,7 @@ class _MainScreenState extends State<MainScreen> {
     Text(
       'News',
     ),
-    Text(
-      'Movies',
-    ),
+    MovieListWidget(),
     Text(
       'TV shows',
     ),
@@ -32,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
+        title: const Center(
           child: Text(
             "TMDB",
             style: TextStyle(color: Colors.white),
@@ -44,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
-        items: [
+        items: const [
           BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: "News"),
           BottomNavigationBarItem(icon: Icon(Icons.movie), label: "Movies"),
           BottomNavigationBarItem(icon: Icon(Icons.tv), label: "TV shows")
