@@ -10,12 +10,12 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedTab = 0;
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
+  static List<Widget> _widgetOptions = <Widget>[
+    const Text(
       'News',
     ),
     MovieListWidget(),
-    Text(
+    const Text(
       'TV shows',
     ),
   ];
