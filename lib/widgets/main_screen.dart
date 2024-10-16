@@ -14,7 +14,9 @@ class _MainScreenState extends State<MainScreen> {
     const Text(
       'News',
     ),
-    MovieListWidget(),
+    MovieListWidget(
+      movieId: 2,
+    ),
     const Text(
       'TV shows',
     ),

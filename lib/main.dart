@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:themoviedb/Theme/appcolors.dart';
 import 'package:themoviedb/widgets/auth/auth_widget.dart';
 import 'package:themoviedb/widgets/main_screen.dart';
+import 'package:themoviedb/widgets/movie_folder/movie_list_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,6 +29,10 @@ class MyApp extends StatelessWidget {
         routes: {
           "/auth": (context) => const AuthWidget(),
           "/main_screen": (context) => const MainScreen(),
+          "/main_screen/movie_details": (context) {
+            final id = ModalRoute.of(context)!.settings.arguments as int;
+            return MovieListWidget(movieId: id);
+          }
         },
         initialRoute: '/auth');
   }

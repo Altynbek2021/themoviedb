@@ -2,20 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class Movie {
+  final int id;
   final String imageName;
   final String title;
   final String time;
   final String description;
 
   Movie(
-      {required this.imageName,
+      {required this.id,
+      required this.imageName,
       required this.title,
       required this.time,
       required this.description});
 }
 
 class MovieListWidget extends StatefulWidget {
-  MovieListWidget({Key? key}) : super(key: key);
+  final int movieId;
+  MovieListWidget({Key? key, required this.movieId}) : super(key: key);
 
   @override
   State<MovieListWidget> createState() => _MovieListWidgetState();
@@ -24,48 +27,56 @@ class MovieListWidget extends StatefulWidget {
 class _MovieListWidgetState extends State<MovieListWidget> {
   final _movies = [
     Movie(
+        id: 1,
         imageName: AppImages.dragon,
         title: "Dragon Ball DAIMA",
         time: "2024",
         description:
             "When Goku and friends shrink due to a conspiracy, they explore the unknown Demon Realm with Supreme Kai, Glorio and Panzy."),
     Movie(
+        id: 2,
         imageName: AppImages.dragon,
         title: "Film",
         time: "July 24, 2024",
         description:
             "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine"),
     Movie(
+        id: 3,
         imageName: AppImages.dragon,
         title: "Смертельная битва",
         time: "July 24, 2024",
         description:
             "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine"),
     Movie(
+        id: 4,
         imageName: AppImages.dragon,
         title: "Прибытие",
         time: "July 24, 2024",
         description:
             "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine"),
     Movie(
+        id: 5,
         imageName: AppImages.dragon,
         title: "Назад в будущее 1",
         time: "July 24, 2024",
         description:
             "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine"),
     Movie(
+        id: 6,
         imageName: AppImages.dragon,
         title: "Назад в будущее 2",
         time: "July 24, 2024",
         description:
             "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine"),
     Movie(
+        id: 7,
         imageName: AppImages.dragon,
         title: "Назад в будущее 3",
         time: "July 24, 2024",
         description:
             "A listless Wade Wilson toils away in civilian life with his days as the morally flexible mercenary, Deadpool, behind him. But when his homeworld faces an existential threat, Wade must reluctantly suit-up again with an even more reluctant Wolverine"),
     Movie(
+        id: 8,
         imageName: AppImages.dragon,
         title: "Назад в будущее 4",
         time: "July 24, 2024",
@@ -98,7 +109,12 @@ class _MovieListWidgetState extends State<MovieListWidget> {
 
     _searchcontroller.addListener(_searchMovies);
     _filteredMovies = _movies;
-    _searchMovies();
+  }
+
+  void _onMovieTap(int index) {
+    final id = _movies[index].id;
+    Navigator.of(context)
+        .pushNamed("/main_screen/movie_details", arguments: id);
   }
 
   @override
@@ -167,9 +183,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                     color: Colors.transparent,
                     child: InkWell(
                       borderRadius: BorderRadius.circular(10),
-                      onTap: () {
-                        ();
-                      },
+                      onTap: () => _onMovieTap(index),
                     ),
                   )
                 ],
