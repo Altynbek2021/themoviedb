@@ -10,8 +10,8 @@ class FormWidget extends StatefulWidget {
 }
 
 class _FormWidgetState extends State<FormWidget> {
-  TextEditingController pscController = TextEditingController();
-  TextEditingController userController = TextEditingController();
+  TextEditingController pscController = TextEditingController(text: "Elton");
+  TextEditingController userController = TextEditingController(text: "Baha");
   String warning = '';
 
   @override

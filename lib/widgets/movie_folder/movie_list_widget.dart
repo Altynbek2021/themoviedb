@@ -160,7 +160,7 @@ class _MovieListWidgetState extends State<MovieListWidget> {
                               ),
                               Text(
                                 movie.time,
-                                style: TextStyle(color: Colors.grey),
+                                style: const TextStyle(color: Colors.grey),
                               ),
                               const SizedBox(
                                 height: 20,
