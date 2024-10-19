@@ -15,25 +15,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          appBarTheme:
-              const AppBarTheme(backgroundColor: AppColors.mainDarkBlue),
-          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-              backgroundColor: AppColors.mainDarkBlue,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.grey),
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        routes: {
-          "/auth": (context) => const AuthWidget(),
-          "/main_screen": (context) => const MainScreen(),
-          "/main_screen/movie_details": (context) {
-            final id = ModalRoute.of(context)!.settings.arguments as int;
-            return MovieDetailsWidget(movieId: id);
-          }
-        },
-        initialRoute: '/auth');
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(backgroundColor: AppColors.mainDarkBlue),
+        bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: AppColors.mainDarkBlue,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      routes: {
+        "/auth": (context) => const AuthWidget(),
+        "/main_screen": (context) => const MainScreen(),
+        "/main_screen/movie_details": (context) {
+          // final id = ModalRoute.of(context)!.settings.arguments as int;
+          // print("++++++++++++++++++++++++++++++++++++++: $id");
+          return MovieDetailsWidget(movieId: 1);
+        }
+      },
+      initialRoute: '/auth',
+    );
   }
 }

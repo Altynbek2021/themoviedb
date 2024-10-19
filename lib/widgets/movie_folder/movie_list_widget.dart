@@ -89,7 +89,6 @@ class _MovieListWidgetState extends State<MovieListWidget> {
   final _searchcontroller = TextEditingController();
 
   void _searchMovies() {
-    print("Search==============================================");
     final query = _searchcontroller.text;
     if (query.isNotEmpty) {
       _filteredMovies = _movies.where((Movie movie) {

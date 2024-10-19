@@ -53,7 +53,6 @@ class _FormWidgetState extends State<FormWidget> {
                         'The login or password you entered is incorrect, please try again or register, ok? yes or not';
                   });
                 }
-                print(warning);
               },
               style: const ButtonStyle(
                 backgroundColor:

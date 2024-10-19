@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:themoviedb/Theme/appcolors.dart';
 import 'package:themoviedb/resources/resources.dart';
 
 class MovieDetailsMainInfo extends StatefulWidget {
@@ -13,7 +14,7 @@ class MovieDetailsMainInfo extends StatefulWidget {
 class _MovieDetailsWidgetState extends State<MovieDetailsMainInfo> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [_TopPosterWidget(), _MoveiNameWidget()],
     );
   }
@@ -24,17 +25,17 @@ class _TopPosterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return const Stack(
       children: [
         Image(
-          image: AssetImage(AppImages.dragon),
+          image: AssetImage(AppImages.cinema),
         ),
         Positioned(
           top: 20,
           left: 20,
           bottom: 20,
           child: Image(
-            image: AssetImage(AppImages.dragon),
+            image: AssetImage(AppImages.cinema),
           ),
         )
       ],
@@ -47,13 +48,17 @@ class _MoveiNameWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      text: TextSpan(children: [
-        TextSpan(
-            text: 'Dragon Ball DAIMA',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
-        TextSpan(text: '2024')
-      ]),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: RichText(
+        text: const TextSpan(children: [
+          TextSpan(
+              text: 'Dragon Ball DAIMA Altynbek Shatmanaliev',
+              style: TextStyle(
+                  fontWeight: FontWeight.bold, color: AppColors.white)),
+          TextSpan(text: ' (2024) ', style: TextStyle(color: AppColors.white))
+        ]),
+      ),
     );
   }
 }
